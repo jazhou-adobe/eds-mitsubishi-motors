@@ -1,0 +1,90 @@
+.quicklinks-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.quicklinks {
+  --quicklinks-bg: rgba(0, 0, 0, 0.8);
+  --quicklinks-text: #ffffff;
+  --quicklinks-accent: #ed0000;
+  --quicklinks-height: 72px;
+  --quicklinks-padding-x: 40px;
+
+  background: var(--quicklinks-bg);
+  color: var(--quicklinks-text);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: var(--quicklinks-height);
+  padding: 0 var(--quicklinks-padding-x);
+  margin: 0;
+}
+
+.quicklinks > div {
+  display: flex;
+  align-items: center;
+}
+
+.quicklinks > div > div {
+  padding: 12px 20px;
+}
+
+.quicklinks > div > div p {
+  margin: 0;
+}
+
+.quicklinks > div > div a {
+  color: var(--quicklinks-text);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.quicklinks > div > div a:hover {
+  text-decoration: underline;
+  color: var(--quicklinks-text);
+}
+
+.quicklinks > div:last-child > div {
+  background: var(--quicklinks-accent);
+  border-radius: 0;
+}
+
+.quicklinks > div:last-child > div a {
+  color: #ffffff;
+}
+
+main .quicklinks .button-container {
+  display: inline;
+}
+
+main .quicklinks a.button:any-link {
+  background: none;
+  border: none;
+  color: var(--quicklinks-text);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+main .quicklinks a.button:any-link:hover {
+  text-decoration: underline;
+}
+
+@media (width < 900px) {
+  .quicklinks {
+    flex-direction: column;
+    height: auto;
+    padding: 16px 20px;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .quicklinks > div > div {
+    padding: 10px 16px;
+  }
+}

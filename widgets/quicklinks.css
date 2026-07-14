@@ -1,0 +1,110 @@
+.quicklinks {
+  --quicklinks-bg: rgba(0, 0, 0, 0.8);
+  --quicklinks-text: #ffffff;
+  --quicklinks-icon-color: #ed0000;
+  --quicklinks-padding: 0 40px;
+  --quicklinks-height: 72px;
+  --quicklinks-radius: 4px;
+
+  position: sticky;
+  bottom: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 20px 20px;
+  box-sizing: border-box;
+}
+
+.quicklinks .quicklinks-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: var(--quicklinks-padding);
+  background: var(--quicklinks-bg);
+  border-radius: var(--quicklinks-radius);
+  height: var(--quicklinks-height);
+  width: 100%;
+  max-width: 1688px;
+  box-sizing: border-box;
+}
+
+.quicklinks .quicklinks-list li {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quicklinks .quicklinks-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  color: var(--quicklinks-text);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.quicklinks .quicklinks-item:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.quicklinks .quicklinks-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.quicklinks .quicklinks-icon-offers::before,
+.quicklinks .quicklinks-icon-dealer::before,
+.quicklinks .quicklinks-icon-testdrive::before,
+.quicklinks .quicklinks-icon-buildprice::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--quicklinks-icon-color);
+}
+
+/* Wrapper override for full-width positioning */
+.quicklinks-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: sticky;
+  bottom: 0;
+  z-index: 4;
+}
+
+@media (width < 900px) {
+  .quicklinks {
+    padding: 0 12px 12px;
+  }
+
+  .quicklinks .quicklinks-list {
+    padding: 0 16px;
+    flex-wrap: wrap;
+    height: auto;
+    gap: 4px;
+  }
+
+  .quicklinks .quicklinks-list li {
+    flex: 0 0 50%;
+  }
+
+  .quicklinks .quicklinks-item {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}

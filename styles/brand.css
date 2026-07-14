@@ -1,0 +1,12 @@
+:root {
+  --heading-font-family: "MMC", verdana, sans-serif;
+  --body-font-family: "MMC", verdana, sans-serif;
+  --background-color: #ffffff;
+  --text-color: rgb(0, 0, 0);
+  --link-color: rgb(0, 0, 0);
+  --link-hover-color: rgb(0, 0, 0);
+  --section-padding: 0px;
+  --nav-height: 189px;
+}
+
+html, body { overflow: auto !important; }
