@@ -6,120 +6,159 @@
 .cards {
   --cards-bg: #ffffff;
   --cards-text: #000000;
-  --cards-muted: #686d71;
-  --cards-gap: 32px;
+  --cards-muted: #6b7075;
+  --cards-band: rgb(227, 229, 230);
 
   background: var(--cards-bg);
   color: var(--cards-text);
-  padding: 80px 0 60px;
+}
+
+.cards-carousel {
+  position: relative;
+}
+
+/* Section head */
+.cards-head {
   text-align: center;
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  gap: var(--cards-gap);
-  padding-left: calc((100% - 600px) / 2);
-  padding-right: calc((100% - 600px) / 2);
-  scrollbar-width: none;
+  padding: 64px 24px 0;
 }
 
-.cards::-webkit-scrollbar {
-  display: none;
+.cards-eyebrow {
+  margin: 0 0 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cards-muted);
 }
 
-@media (width >= 900px) {
-  .cards {
-    padding-left: calc((100% - 800px) / 2);
-    padding-right: calc((100% - 800px) / 2);
-  }
-}
-
-/* Individual card */
-.cards .cards-card {
-  flex: 0 0 600px;
-  scroll-snap-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 0;
-}
-
-@media (width >= 900px) {
-  .cards .cards-card {
-    flex: 0 0 800px;
-  }
-}
-
-/* Card top: model name */
-.cards .cards-card-top {
-  margin-bottom: 8px;
-}
-
-.cards .cards-card-top h3 {
-  font-size: 48px;
+.cards-title {
+  margin: 0 0 20px;
+  font-size: 30px;
   font-weight: 700;
-  margin: 0;
   line-height: 1.1;
 }
 
-@media (width >= 900px) {
-  .cards .cards-card-top h3 {
-    font-size: 72px;
-  }
+.cards-counter {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--cards-muted);
 }
 
-/* Card image */
-.cards .cards-card-image {
+@media (width >= 900px) {
+  .cards-title { font-size: 40px; }
+}
+
+/* Stage: single slide + arrows, with the grey band behind the lower area */
+.cards-stage {
+  position: relative;
+  /* grey band starts partway down and runs to the bottom of the stage */
+  background: linear-gradient(
+    to bottom,
+    var(--cards-bg) 0,
+    var(--cards-bg) 58%,
+    var(--cards-band) 58%,
+    var(--cards-band) 100%
+  );
+}
+
+.cards-slides {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cards-slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cards-slide.is-active {
+  display: flex;
+}
+
+.cards-slide-name {
+  margin: 24px 0 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+@media (width >= 900px) {
+  .cards-slide-name { font-size: 72px; }
+}
+
+.cards-slide-media {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 16px 0;
+  margin: 24px 0 0;
 }
 
-.cards .cards-card-image picture {
+.cards-slide-media picture,
+.cards-slide-media img {
   display: block;
-  width: 80%;
-  max-width: 500px;
-}
-
-.cards .cards-card-image img {
   width: 100%;
+  max-width: 560px;
   height: auto;
   object-fit: contain;
 }
 
-/* Card bottom: description + CTA */
-.cards .cards-card-bottom {
+/* Description + CTA row — sits in the grey band, left copy / right button */
+.cards-slide-info {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-width: 500px;
+  gap: 20px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 24px 0 56px;
 }
 
-.cards .cards-card-bottom p {
-  font-size: 14px;
+.cards-slide-copy {
+  max-width: 620px;
+}
+
+.cards-slide-copy p {
+  margin: 0;
+  font-size: 15px;
   line-height: 1.6;
-  margin: 4px 0;
   color: var(--cards-text);
 }
 
-/* CTA button */
+.cards-slide-actions {
+  flex-shrink: 0;
+}
+
+@media (width >= 900px) {
+  .cards-slide-info {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 0 64px;
+  }
+}
+
+/* CTA button — bordered square, matches source "Visit showroom" */
 main .cards a.button:any-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: transparent;
   border: 1px solid var(--cards-text);
-  border-radius: 4px;
-  padding: 16px 24px;
-  font-size: 18px;
+  border-radius: 0;
+  padding: 18px 32px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--cards-text);
   text-decoration: none;
-  margin-top: 16px;
+  white-space: nowrap;
   transition: background 0.2s, color 0.2s;
 }
 
@@ -129,5 +168,39 @@ main .cards a.button:any-link:hover {
 }
 
 main .cards .button-wrapper {
-  margin: 8px 0 0;
+  margin: 0;
+}
+
+/* Circular prev/next arrows on the stage edges */
+.cards-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--cards-text);
+  background: transparent;
+  color: var(--cards-text);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cards-arrow:hover {
+  background: var(--cards-text);
+  color: var(--cards-bg);
+}
+
+.cards-arrow-prev { left: 16px; }
+.cards-arrow-next { right: 16px; }
+
+@media (width >= 900px) {
+  .cards-arrow-prev { left: 40px; }
+  .cards-arrow-next { right: 40px; }
 }
