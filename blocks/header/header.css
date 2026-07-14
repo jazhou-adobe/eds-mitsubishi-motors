@@ -2,7 +2,7 @@
 .header.block .nav-wrapper {
   background-color: #fff;
   width: 100%;
-  z-index: 2;
+  z-index: 10;
   position: fixed;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
@@ -243,41 +243,46 @@
 
   .header.block nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
-    position: relative;
+    position: static;
   }
 
   .header.block nav .nav-sections .default-content-wrapper > ul > li > ul {
     display: none;
-    position: relative;
   }
 
+  /* Full-width mega-menu panel spanning the viewport, dropping from the nav */
   .header.block nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
-    display: block;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 4px;
     position: absolute;
-    left: -24px;
-    width: 240px;
-    top: 150%;
-    padding: 16px;
+    left: 0;
+    right: 0;
+    top: 100%;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 40px calc((100vw - 1160px) / 2);
     background-color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    border-top: 1px solid #e3e5e6;
     white-space: initial;
-    border-radius: 4px;
-  }
-
-  .header.block nav .nav-sections .default-content-wrapper > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid #fff;
+    z-index: 5;
   }
 
   .header.block nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
+    padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid #f0f1f2;
+  }
+
+  .header.block nav .nav-sections .default-content-wrapper > ul > li > ul > li a {
+    color: #000;
+    transition: color 0.15s;
+  }
+
+  .header.block nav .nav-sections .default-content-wrapper > ul > li > ul > li a:hover {
+    color: var(--quicklinks-accent, #ed0000);
   }
 }
 
