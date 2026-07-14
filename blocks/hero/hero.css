@@ -1,6 +1,13 @@
+/* Hero section is full-bleed and flush — no section margins/padding */
+main .section.hero-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .hero-wrapper {
   max-width: 100% !important;
   padding: 0 !important;
+  margin: 0 !important;
 }
 
 .hero {

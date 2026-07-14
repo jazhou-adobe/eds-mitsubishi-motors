@@ -43,10 +43,10 @@
     align-items: center;
     gap: 0;
     max-width: 1728px;
-    padding: 16px 40px;
+    padding: 8px 40px;
     min-height: 0;
     overflow: visible;
-    height: 95px;
+    height: var(--nav-height);
   }
 }
 

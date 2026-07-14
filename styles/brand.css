@@ -6,7 +6,7 @@
   --link-color: rgb(0, 0, 0);
   --link-hover-color: rgb(0, 0, 0);
   --section-padding: 0px;
-  --nav-height: 189px;
+  --nav-height: 72px;
 }
 
 html, body { overflow: auto !important; }

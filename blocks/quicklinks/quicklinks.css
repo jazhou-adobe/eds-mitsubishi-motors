@@ -1,6 +1,13 @@
+/* Quicklinks bar sits flush under the hero — no section margins */
+main .section.quicklinks-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .quicklinks-wrapper {
   max-width: 100% !important;
   padding: 0 !important;
+  margin: 0 !important;
 }
 
 .quicklinks {
