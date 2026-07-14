@@ -9,19 +9,20 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+@import url('brand.css');
 
 :root {
   /* colors */
-  --background-color: white;
+  --background-color: #ffffff;
   --light-color: #f8f8f8;
   --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --text-color: rgb(0, 0, 0);
+  --link-color: rgb(0, 0, 0);
+  --link-hover-color: rgb(0, 0, 0);
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: "MMC", verdana, sans-serif;
+  --heading-font-family: "MMC", verdana, sans-serif;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -37,7 +38,14 @@
   --heading-font-size-xs: 22px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 189px;
+}
+
+main .button-container { display: inline; }
+main a.button:any-link {
+  background: none; border: none; border-radius: 0;
+  color: var(--link-color); font-size: inherit; font-weight: inherit;
+  padding: 0; margin: 0; text-decoration: underline; white-space: normal;
 }
 
 /* fallback fonts */

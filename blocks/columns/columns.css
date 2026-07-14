@@ -1,33 +1,140 @@
+/* Columns block — 2-col promo sections */
+.columns-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.columns {
+  --columns-bg: #000000;
+  --columns-text: #ffffff;
+  --columns-padding: 48px 32px;
+  --columns-gap: 0;
+}
+
 .columns > div {
   display: flex;
   flex-direction: column;
-}
-
-.columns img {
-  width: 100%;
+  background: var(--columns-bg);
+  color: var(--columns-text);
+  min-height: 700px;
 }
 
 .columns > div > div {
-  order: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .columns > div > .columns-img-col {
-  order: 0;
+  min-height: 300px;
+  overflow: hidden;
 }
 
 .columns > div > .columns-img-col img {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
+.columns img {
+  width: 100%;
+  height: auto;
+}
+
+.columns > div > div:not(.columns-img-col) {
+  padding: var(--columns-padding);
+}
+
+.columns h3 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.columns p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* CTA buttons — bordered outline style */
+main .columns .button-wrapper {
+  display: block;
+  margin-top: 24px;
+}
+
+main .columns a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  border: 1px solid currentColor;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+main .columns a.button:any-link:hover {
+  background: var(--columns-text);
+  color: var(--columns-bg);
+}
+
+/* Row 5 — light theme (Diamond Advantage) */
+.columns > div:nth-child(5) {
+  background: #ffffff;
+  color: #000000;
+}
+
+main .columns > div:nth-child(5) a.button:any-link {
+  border-color: #000000;
+  color: #000000;
+}
+
+main .columns > div:nth-child(5) a.button:any-link:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Desktop layout */
 @media (width >= 900px) {
   .columns > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 800px;
   }
 
   .columns > div > div {
     flex: 1;
-    order: unset;
+    width: 50%;
+  }
+
+  .columns > div > .columns-img-col {
+    min-height: unset;
+  }
+
+  .columns > div > div:not(.columns-img-col) {
+    padding: 64px 48px;
+    max-width: 50%;
+  }
+
+  .columns h3 {
+    font-size: 40px;
+  }
+
+  /* Rows with image-right: reverse the flex direction */
+  .columns > div:nth-child(2),
+  .columns > div:nth-child(3) {
+    flex-direction: row-reverse;
   }
 }
