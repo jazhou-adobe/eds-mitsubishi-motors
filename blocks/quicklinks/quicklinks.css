@@ -17,7 +17,9 @@ main .section.quicklinks-container {
   --quicklinks-height: 72px;
   --quicklinks-padding-x: 40px;
 
-  position: sticky;
+  position: fixed;
+  left: 0;
+  right: 0;
   bottom: 0;
   z-index: 4;
   background: var(--quicklinks-bg);
