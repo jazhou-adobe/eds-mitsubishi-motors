@@ -157,6 +157,13 @@
   object-fit: contain;
 }
 
+.header.block nav .nav-brand .icon-logo,
+.header.block nav .nav-brand .icon-logo img {
+  display: block;
+  width: auto;
+  height: 56px;
+}
+
 /* sections */
 .header.block nav .nav-sections {
   grid-area: sections;
