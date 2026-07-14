@@ -294,7 +294,7 @@
 }
 
 @media (width >= 900px) {
-  .header.block nav .nav-tools {
+  .header.block nav .nav-tools .default-content-wrapper {
     display: flex;
     align-items: center;
     gap: 28px;
