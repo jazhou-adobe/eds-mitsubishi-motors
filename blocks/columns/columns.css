@@ -131,10 +131,4 @@ main .columns > div:nth-child(5) a.button:any-link:hover {
   .columns h3 {
     font-size: 40px;
   }
-
-  /* Rows with image-right: reverse the flex direction */
-  .columns > div:nth-child(2),
-  .columns > div:nth-child(3) {
-    flex-direction: row-reverse;
-  }
 }
